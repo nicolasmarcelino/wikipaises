@@ -19,7 +19,7 @@ function App() {
 
   const getAllCountries = async () => {
     try {
-      const response = await api.get('all?fields=name,flags,capital,region')
+      const response = await api.get('all?fields=name,flags,capital,region,cca3')
       setCountries(response.data)
     } catch (error) {
       console.error('Error fetching countries:', error)
@@ -36,8 +36,7 @@ function App() {
 
   return (
     <>
-      <h1>Hello</h1>
-      <button onClick={getAllCountries}>Get countries</button>
+      <h1>Wiki</h1>
       <button onClick={retornar}>Retornar</button>
       <button onClick={avancar}>Avançar</button>
       <p>Page {currentPage} of {totalPages}</p>
