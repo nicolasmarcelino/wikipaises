@@ -3,8 +3,9 @@ import './App.css'
 import Card from './components/Card'
 import api from './services/api'
 import Nav from './components/Nav'
+import Search from './components/Search'
 
-const ITEMS_PER_PAGE = 20
+const ITEMS_PER_PAGE = 15
 
 function App() {
   const [countries, setCountries] = useState([])
@@ -50,40 +51,28 @@ function App() {
 
   return (
     <>
-      <h1>Wiki</h1>
-      <Nav
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onNext={avancar}
-        onPrev={retornar}
-      />
+      <h1>WikiPaíses</h1>
 
-      <input
-        type="text"
-        placeholder="Search country..."
-        value={search}
-        onChange={(e) => {
-          setSearch(e.target.value)
-          setCurrentPage(1)
-        }}
+      <Search
+        search={search}
+        setSearch={setSearch}
+        region={region}
+        setRegion={setRegion}
+        setCurrentPage={setCurrentPage}
       />
-
-      <select onChange={(e) => {
-        setRegion(e.target.value)
-        setCurrentPage(1)
-      }}>
-        <option value="all">All</option>
-        <option value="Africa">Africa</option>
-        <option value="Americas">Americas</option>
-        <option value="Asia">Asia</option>
-        <option value="Europe">Europe</option>
-      </select>
 
       <div className='cards'>
         {paginated.map((country, index) => (
           <Card key={index} country={country} />
         ))}
       </div>
+
+      <Nav
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onNext={avancar}
+        onPrev={retornar}
+      />
     </>
   )
 }

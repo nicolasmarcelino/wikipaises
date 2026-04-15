@@ -1,9 +1,9 @@
 function Nav({ currentPage, totalPages, onNext, onPrev }) {
   return (
-    <div>
+    <div className='nav'>
       <button onClick={onPrev}>Retornar</button>
+      <p>Página {currentPage} de {totalPages}</p>
       <button onClick={onNext}>Avançar</button>
-      <p>Page {currentPage} of {totalPages}</p>
     </div>
   )
 }
