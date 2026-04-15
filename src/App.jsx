@@ -8,10 +8,21 @@ const ITEMS_PER_PAGE = 10
 
 function App() {
   const [countries, setCountries] = useState([])
+  const [region, setRegion] = useState('all')
   const [currentPage, setCurrentPage] = useState(1)
 
-  const totalPages = Math.ceil(countries.length / ITEMS_PER_PAGE)
-  const paginated = countries.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE)
+
+  const filteredCountries =
+    region === 'all'
+      ? countries
+      : countries.filter(country => country.region === region)
+
+  const totalPages = Math.ceil(filteredCountries.length / ITEMS_PER_PAGE)
+
+  const paginated = filteredCountries.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  )
 
   useEffect(() => {
     getAllCountries()
@@ -40,6 +51,17 @@ function App() {
       <button onClick={retornar}>Retornar</button>
       <button onClick={avancar}>Avançar</button>
       <p>Page {currentPage} of {totalPages}</p>
+
+      <select onChange={(e) => {
+        setRegion(e.target.value)
+        setCurrentPage(1) // reset page when filter changes
+      }}>
+        <option value="all">All</option>
+        <option value="Africa">Africa</option>
+        <option value="Americas">Americas</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+      </select>
 
       <div className='cards'>
         {paginated.map((country, index) => (
