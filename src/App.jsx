@@ -2,20 +2,23 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import Card from './components/Card'
 import api from './services/api'
-import { useSearchParams } from 'react-router-dom'
+import Nav from './components/Nav'
 
-const ITEMS_PER_PAGE = 10
+const ITEMS_PER_PAGE = 20
 
 function App() {
   const [countries, setCountries] = useState([])
   const [region, setRegion] = useState('all')
+  const [search, setSearch] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
 
-
-  const filteredCountries =
-    region === 'all'
-      ? countries
-      : countries.filter(country => country.region === region)
+  const filteredCountries = countries
+    .filter(country =>
+      region === 'all' ? true : country.region === region
+    )
+    .filter(country =>
+      country.name.common.toLowerCase().includes(search.toLowerCase())
+    )
 
   const totalPages = Math.ceil(filteredCountries.length / ITEMS_PER_PAGE)
 
@@ -48,13 +51,26 @@ function App() {
   return (
     <>
       <h1>Wiki</h1>
-      <button onClick={retornar}>Retornar</button>
-      <button onClick={avancar}>Avançar</button>
-      <p>Page {currentPage} of {totalPages}</p>
+      <Nav
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onNext={avancar}
+        onPrev={retornar}
+      />
+
+      <input
+        type="text"
+        placeholder="Search country..."
+        value={search}
+        onChange={(e) => {
+          setSearch(e.target.value)
+          setCurrentPage(1)
+        }}
+      />
 
       <select onChange={(e) => {
         setRegion(e.target.value)
-        setCurrentPage(1) // reset page when filter changes
+        setCurrentPage(1)
       }}>
         <option value="all">All</option>
         <option value="Africa">Africa</option>

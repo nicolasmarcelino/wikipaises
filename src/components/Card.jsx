@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 
 function Card({ country }) {
-     const navigate = useNavigate()
+  const navigate = useNavigate()
 
   return (
     <div className='card' onClick={() => navigate(`/country/${country.cca3}`)}>
