@@ -54,9 +54,7 @@ function App() {
       <h1>WikiPaíses</h1>
 
       <Search
-        search={search}
         setSearch={setSearch}
-        region={region}
         setRegion={setRegion}
         setCurrentPage={setCurrentPage}
       />

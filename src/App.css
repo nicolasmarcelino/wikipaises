@@ -18,6 +18,10 @@ body {
      flex: 0 0 20%;
 }
 
+.card:hover {
+     transform:translateY(-20px);
+}
+
 .card h3  {
      margin:0;
 }
@@ -29,14 +33,22 @@ body {
      display: flex;
      flex-direction: row;
      justify-content: space-evenly;
+     
+}
+
+.detail-page {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
 }
 
 .mainDetail {
-
+     display: flex;
+     flex-direction: row;
 }
 
-.mainDetail h1 {
-     margin:0;
+.mainDetail img {
+     margin:1em;
 }
 
 .mainDetail h2 {
@@ -48,7 +60,30 @@ body {
      font-size: 0.1in;
 }
 
+.otherDetails .section {
+     margin:5em;
+
+}
+
 .info {
      font-size: 0.2in;
      margin:0;
+}
+
+.search-bar {
+     text-align: center;
+}
+.search-bar input {
+     margin: 1em;
+     height: 20px;
+     border: none;
+     border-radius: 10px;
+     padding: 10px;
+}
+.search-bar select {
+     appearance: none; /* ignora estilização padrão dada pelo browser */
+     margin:1em;
+     border:none;
+     padding: 12px;
+     border-radius: 10px;
 }

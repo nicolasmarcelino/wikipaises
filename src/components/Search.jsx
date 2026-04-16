@@ -1,10 +1,9 @@
-function Search({ search, setSearch, region, setRegion, setCurrentPage }) {
+function Search({ setSearch, setRegion, setCurrentPage }) {
   return (
-    <div>
+    <div className="search-bar">
       <input
         type="text"
         placeholder="Nome do país"
-        value={search}
         onChange={(e) => {
           setSearch(e.target.value)
           setCurrentPage(1)
@@ -12,7 +11,6 @@ function Search({ search, setSearch, region, setRegion, setCurrentPage }) {
       />
 
       <select
-        value={region}
         onChange={(e) => {
           setRegion(e.target.value)
           setCurrentPage(1)
