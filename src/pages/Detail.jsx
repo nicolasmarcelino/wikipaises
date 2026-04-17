@@ -29,8 +29,8 @@ function Detail() {
                     <div className='mainDetail'>
                          <img src={country.flags.svg} width={200} />
                          <div>
-                         <h1>{country.name.common}</h1>
-                         <h2>{country.name.official}</h2>
+                              <h1>{country.name.common}</h1>
+                              <h2>{country.name.official}</h2>
                          </div>
                     </div>
 
@@ -63,6 +63,10 @@ function Detail() {
                               <p className='name-info'>CCA3</p>
                               <p className='info'>{country.cca3}</p>
                          </div >
+                    </div>
+                    <div className='trivia'>
+                         <img src="/example.png" />
+                         <p className='content'>Este país apresenta uma diversidade geográfica marcante, com paisagens que variam entre áreas urbanas densamente povoadas e regiões naturais preservadas. Seu clima pode oscilar conforme a localização, influenciando diretamente os modos de vida e as atividades econômicas da população. A economia é sustentada por diferentes setores, que podem incluir desde a produção agrícola até indústrias modernas e serviços tecnológicos.</p>
                     </div>
                </div>
           </>
