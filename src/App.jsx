@@ -4,6 +4,7 @@ import Card from './components/Card'
 import api from './services/api'
 import Nav from './components/Nav'
 import Search from './components/Search'
+import Header from './components/Header'
 
 const ITEMS_PER_PAGE = 15
 
@@ -51,7 +52,7 @@ function App() {
 
   return (
     <>
-      <h1>WikiPaíses</h1>
+      <Header/>
 
       <Search
         setSearch={setSearch}

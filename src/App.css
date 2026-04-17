@@ -3,6 +3,10 @@ body {
      background-color: gainsboro;
 }
 
+.header {
+     text-align: center;
+}
+
 .cards {
      display: flex;
      flex-wrap: wrap;
