@@ -21,6 +21,7 @@ function Search({ setSearch, setRegion, setCurrentPage }) {
         <option value="Americas">América</option>
         <option value="Asia">Ásia</option>
         <option value="Europe">Europa</option>
+        <option value="Oceania">Oceânia</option>
       </select>
     </div>
   )
